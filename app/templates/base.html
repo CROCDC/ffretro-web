@@ -3,6 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta property="og:type"              content="website" />
+    <meta property="og:url"               content="{{ request.url }}" />
+    <meta property="og:title"             content="FF Retro — Retroexcavadora en Colonia" />
+    <meta property="og:description"       content="FF Retro — Servicio de retroexcavadora en Colonia del Sacramento. Excavaciones, zanjas, nivelación y movimiento de suelos." />
+    <meta property="og:image"             content="{{ url_for('static', filename='assets/brand/flyer.jpg', _external=True) }}" />
+    <meta property="og:image:secure_url"  content="{{ url_for('static', filename='assets/brand/flyer.jpg', _external=True) }}" />
+    <meta property="og:image:type"        content="image/jpeg" />
+    <meta property="og:image:width"       content="1189" />
+    <meta property="og:image:height"      content="1440" />
+    <meta property="og:image:alt"         content="FF Retro — Excavaciones y movimiento de suelos en Colonia del Sacramento" />
+    <meta property="og:locale"            content="es_UY" />
+    <meta property="og:site_name"         content="FF Retro" />
+
+    <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:title"       content="FF Retro — Retroexcavadora en Colonia" />
+    <meta name="twitter:description" content="FF Retro — Servicio de retroexcavadora en Colonia del Sacramento. Excavaciones, zanjas, nivelación y movimiento de suelos." />
+    <meta name="twitter:image"       content="{{ url_for('static', filename='assets/brand/flyer.jpg', _external=True) }}" />
+
     <meta name="theme-color" content="#0a0a0a">
     <meta name="description" content="{% block description %}FF Retro — Servicio de retroexcavadora en Colonia del Sacramento. Excavaciones, zanjas, nivelación y movimiento de suelos.{% endblock %}">
     <title>{% block title %}FF Retro — Retroexcavadora en Colonia{% endblock %}</title>

@@ -25,10 +25,18 @@
       "Bash(/usr/bin/curl -sS -H 'Authorization: Bearer __TRACKED_VAR__' https://infisical.nexttech.com.ar/api/v2/organizations/__TRACKED_VAR__/identity-memberships)",
       "Read(//var/folders/5x/2v0syqyn14jb6gfmbygdqhyh0000gp/T/chrome-devtools-mcp-sIsDKq/**)",
       "Read(//private/var/folders/5x/2v0syqyn14jb6gfmbygdqhyh0000gp/T/chrome-devtools-mcp-sIsDKq/**)",
-      "Bash(tee /tmp/build-token)"
+      "Bash(tee /tmp/build-token)",
+      "Bash(command -v sips)",
+      "Bash(command -v identify)",
+      "Bash(command -v pngquant)",
+      "Bash(command -v jpegoptim)",
+      "Bash(command -v cwebp)",
+      "Bash(xmllint --noout -)"
     ],
     "additionalDirectories": [
-      "/Users/cromero/VisualProjects/infra.pantech/docs"
+      "/Users/cromero/VisualProjects/infra.pantech/docs",
+      "/Users/cromero/VisualProjects/infra.pantech/scripts",
+      "/Users/cromero/VisualProjects/infra.pantech/templates/local-server-deploy/init-nexttech-local-server-deploy"
     ]
   }
 }
