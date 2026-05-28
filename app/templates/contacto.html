@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Contacto — FF Retro{% endblock %}
+{% block description %}Contactá a FF Retro en Colonia del Sacramento por WhatsApp, teléfono o Instagram.{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <p class="eyebrow">Contacto</p>
+        <h1>Hablemos de tu obra</h1>
+        <p class="lead">{{ contact.tagline }}</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container contact-grid">
+        <a class="contact-card" href="{{ contact.whatsapp_url }}" target="_blank" rel="noopener">
+            <span class="contact-card__label">WhatsApp</span>
+            <span class="contact-card__value">{{ contact.phone_display }}</span>
+            <span class="contact-card__hint">Toca para chatear</span>
+        </a>
+
+        <a class="contact-card" href="tel:{{ contact.phone_e164 }}">
+            <span class="contact-card__label">Teléfono</span>
+            <span class="contact-card__value">{{ contact.phone_display }}</span>
+            <span class="contact-card__hint">Toca para llamar</span>
+        </a>
+
+        <a class="contact-card" href="{{ contact.instagram_url }}" target="_blank" rel="noopener">
+            <span class="contact-card__label">Instagram</span>
+            <span class="contact-card__value">{{ contact.instagram_handle }}</span>
+            <span class="contact-card__hint">Ver más trabajos</span>
+        </a>
+
+        <div class="contact-card contact-card--static">
+            <span class="contact-card__label">Zona</span>
+            <span class="contact-card__value">{{ contact.location }}</span>
+            <span class="contact-card__hint">Trabajamos en toda la zona</span>
+        </div>
+    </div>
+</section>
+{% endblock %}

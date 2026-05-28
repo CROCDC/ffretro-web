@@ -1,0 +1,34 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gallery-dl --version)",
+      "Bash(brew install *)",
+      "Bash(gallery-dl -d . --write-metadata \"https://www.instagram.com/ffretrocolonia/\")",
+      "Bash(FLASK_DEBUG=false .venv/bin/python run.py)",
+      "mcp__chrome-devtools__new_page",
+      "mcp__chrome-devtools__resize_page",
+      "mcp__chrome-devtools__navigate_page",
+      "mcp__chrome-devtools__take_screenshot",
+      "mcp__chrome-devtools__list_console_messages",
+      "mcp__chrome-devtools__evaluate_script",
+      "Bash(gh auth *)",
+      "Bash(grep -E \"^\\(export \\)?\\(JENKINS_USER|JENKINS_PASSWORD|CF_API_TOKEN|PI_HOST|PI_SSH_PASSWORD|SSHPASS\\)=\" ~/.zshrc 2>/dev/null | sed -E 's/=.*/=<set>/' || echo \"no matches\")",
+      "Read(//Users/cromero/**)",
+      "Bash(gh repo *)",
+      "Bash(infisical login *)",
+      "Bash(infisical --help)",
+      "Bash(infisical token *)",
+      "Bash(infisical vault *)",
+      "Bash(security find-generic-password *)",
+      "Bash(security dump-keychain *)",
+      "Bash(command -v curl)",
+      "Bash(/usr/bin/curl -sS -H 'Authorization: Bearer __TRACKED_VAR__' https://infisical.nexttech.com.ar/api/v2/organizations/__TRACKED_VAR__/identity-memberships)",
+      "Read(//var/folders/5x/2v0syqyn14jb6gfmbygdqhyh0000gp/T/chrome-devtools-mcp-sIsDKq/**)",
+      "Read(//private/var/folders/5x/2v0syqyn14jb6gfmbygdqhyh0000gp/T/chrome-devtools-mcp-sIsDKq/**)",
+      "Bash(tee /tmp/build-token)"
+    ],
+    "additionalDirectories": [
+      "/Users/cromero/VisualProjects/infra.pantech/docs"
+    ]
+  }
+}

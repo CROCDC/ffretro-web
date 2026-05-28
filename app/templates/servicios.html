@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Servicios — FF Retro{% endblock %}
+{% block description %}Excavaciones, zanjas, cimientos, nivelación, limpieza de terrenos y apertura de caminos en Colonia del Sacramento.{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <p class="eyebrow">Servicios</p>
+        <h1>Excavaciones y movimiento de suelos</h1>
+        <p class="lead">Retroexcavadora para obra civil, rural y residencial en Colonia del Sacramento y zona.</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container services-detail">
+        <ul class="services-list">
+            {% for service in services %}
+            <li id="{{ service.slug }}" class="service-item">
+                <h2>{{ service.title }}</h2>
+                <p>{{ service.description }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <aside class="services-aside">
+            <figure>
+                <img src="{{ url_for('static', filename='assets/brand/flyer.jpg') }}" alt="Flyer de servicios FF Retro">
+            </figure>
+            <div class="card">
+                <h3>¿Tu trabajo no está en la lista?</h3>
+                <p>Si tenés una obra puntual, escribinos y la evaluamos.</p>
+                <a class="btn btn--primary" href="{{ contact.whatsapp_url }}" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+            </div>
+        </aside>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}FF Retro — Retroexcavadora en Colonia del Sacramento{% endblock %}
+
+{% block content %}
+<section class="hero" style="background-image: linear-gradient(180deg, rgba(10,10,10,0.55), rgba(10,10,10,0.85)), url('{{ url_for('static', filename='assets/gallery/01-barro-atardecer.jpg') }}');">
+    <div class="container hero__inner">
+        <p class="eyebrow">Colonia del Sacramento</p>
+        <h1 class="hero__title">Excavaciones y movimiento de suelos</h1>
+        <p class="hero__lead">{{ contact.tagline }}</p>
+        <div class="hero__ctas">
+            <a class="btn btn--primary" href="{{ contact.whatsapp_url }}" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+            <a class="btn btn--ghost" href="tel:{{ contact.phone_e164 }}">Llamar {{ contact.phone_display }}</a>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <header class="section__header">
+            <h2>Qué hacemos</h2>
+            <p class="muted">Trabajos rurales y urbanos en Colonia y alrededores.</p>
+        </header>
+        <ul class="services-grid">
+            {% for service in services %}
+            <li class="service-card">
+                <h3>{{ service.title }}</h3>
+                <p>{{ service.description }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+        <div class="section__cta">
+            <a class="btn btn--primary" href="{{ url_for('servicios') }}">Ver todos los servicios</a>
+        </div>
+    </div>
+</section>
+
+<section class="section section--dark">
+    <div class="container">
+        <header class="section__header">
+            <h2>Trabajos recientes</h2>
+            <p class="muted">Algunas obras donde estuvo FF Retro.</p>
+        </header>
+        <ul class="gallery-strip">
+            {% for image in gallery %}
+            <li>
+                <img src="{{ url_for('static', filename='assets/gallery/' + image.file) }}" alt="{{ image.alt }}" loading="lazy">
+            </li>
+            {% endfor %}
+        </ul>
+        <div class="section__cta">
+            <a class="btn btn--ghost" href="{{ url_for('galeria') }}">Ver galería completa</a>
+        </div>
+    </div>
+</section>
+
+<section class="section section--cta">
+    <div class="container cta-banner">
+        <div>
+            <h2>¿Necesitás una retroexcavadora?</h2>
+            <p class="muted">Coordinamos visita y cotización sin compromiso.</p>
+        </div>
+        <a class="btn btn--primary" href="{{ contact.whatsapp_url }}" target="_blank" rel="noopener">Escribinos ahora</a>
+    </div>
+</section>
+{% endblock %}

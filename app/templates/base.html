@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0a0a">
+    <meta name="description" content="{% block description %}FF Retro — Servicio de retroexcavadora en Colonia del Sacramento. Excavaciones, zanjas, nivelación y movimiento de suelos.{% endblock %}">
+    <title>{% block title %}FF Retro — Retroexcavadora en Colonia{% endblock %}</title>
+    <link rel="icon" href="{{ url_for('static', filename='assets/brand/logo.jpg') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% block head_extra %}{% endblock %}
+</head>
+<body>
+    <header class="site-header">
+        <div class="container site-header__inner">
+            <a class="brand" href="{{ url_for('index') }}" aria-label="FF Retro - Inicio">
+                <img src="{{ url_for('static', filename='assets/brand/logo.jpg') }}" alt="" width="48" height="48">
+                <span class="brand__text">FF Retro</span>
+            </a>
+
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Abrir menú">
+                <span></span><span></span><span></span>
+            </button>
+
+            <nav id="primary-nav" class="site-nav" aria-label="Principal">
+                <a href="{{ url_for('index') }}" {% if request.endpoint == 'index' %}aria-current="page"{% endif %}>Inicio</a>
+                <a href="{{ url_for('servicios') }}" {% if request.endpoint == 'servicios' %}aria-current="page"{% endif %}>Servicios</a>
+                <a href="{{ url_for('galeria') }}" {% if request.endpoint == 'galeria' %}aria-current="page"{% endif %}>Galería</a>
+                <a href="{{ url_for('contacto') }}" {% if request.endpoint == 'contacto' %}aria-current="page"{% endif %}>Contacto</a>
+                <a class="btn btn--primary nav-cta" href="{{ contact.whatsapp_url }}" target="_blank" rel="noopener">
+                    Cotizar por WhatsApp
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <div class="container site-footer__grid">
+            <div>
+                <div class="brand">
+                    <img src="{{ url_for('static', filename='assets/brand/logo.jpg') }}" alt="" width="44" height="44">
+                    <span class="brand__text">FF Retro</span>
+                </div>
+                <p class="muted">{{ contact.tagline }}</p>
+            </div>
+            <div>
+                <h3>Contacto</h3>
+                <ul class="footer-list">
+                    <li><a href="tel:{{ contact.phone_e164 }}">{{ contact.phone_display }}</a></li>
+                    <li><a href="{{ contact.whatsapp_url }}" target="_blank" rel="noopener">WhatsApp</a></li>
+                    <li><a href="{{ contact.instagram_url }}" target="_blank" rel="noopener">{{ contact.instagram_handle }}</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Zona</h3>
+                <p class="muted">{{ contact.location }}</p>
+            </div>
+        </div>
+        <div class="container site-footer__bottom">
+            <small>&copy; {{ current_year }} FF Retro. Todos los derechos reservados.</small>
+        </div>
+    </footer>
+
+    <a class="floating-cta" href="{{ contact.whatsapp_url }}" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+        <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+            <path fill="currentColor" d="M19.05 4.91A10 10 0 0 0 4.6 18.6L3 22l3.5-1.5A10 10 0 1 0 19.05 4.9zm-7.1 15.4a8.4 8.4 0 0 1-4.3-1.18l-.31-.18-2.07.89.9-2.03-.2-.32a8.4 8.4 0 1 1 5.98 2.82zm4.84-6.3c-.27-.13-1.58-.78-1.82-.87-.24-.09-.42-.13-.6.14-.18.27-.7.86-.86 1.04-.16.18-.32.2-.59.07-.27-.13-1.14-.42-2.18-1.34-.8-.71-1.34-1.6-1.5-1.86-.16-.27-.02-.41.12-.55.12-.12.27-.31.41-.47.13-.16.18-.27.27-.45.09-.18.04-.34-.02-.47-.07-.13-.6-1.45-.82-1.99-.22-.52-.44-.45-.6-.45h-.51c-.18 0-.47.07-.71.34s-.94.92-.94 2.24.97 2.6 1.1 2.78c.13.18 1.9 2.9 4.6 4.07.64.28 1.14.45 1.53.58.64.2 1.22.17 1.68.1.51-.08 1.58-.65 1.8-1.28.22-.63.22-1.18.16-1.29-.07-.1-.24-.17-.51-.3z"/>
+        </svg>
+    </a>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

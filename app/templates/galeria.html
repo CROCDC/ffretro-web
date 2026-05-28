@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Galería — FF Retro{% endblock %}
+{% block description %}Galería de trabajos de FF Retro: excavaciones, nivelaciones, zanjas y limpieza de terrenos en Colonia.{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <p class="eyebrow">Galería</p>
+        <h1>Obras y trabajos</h1>
+        <p class="lead">Una muestra de lo que hicimos en Colonia del Sacramento.</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2 class="section__title">Fotos</h2>
+        <ul class="gallery-grid">
+            {% for image in images %}
+            <li>
+                <a href="{{ url_for('static', filename='assets/gallery/' + image.file) }}" target="_blank" rel="noopener">
+                    <img src="{{ url_for('static', filename='assets/gallery/' + image.file) }}" alt="{{ image.alt }}" loading="lazy">
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+
+<section class="section section--dark">
+    <div class="container">
+        <h2 class="section__title">Videos</h2>
+        <ul class="video-grid">
+            {% for video in videos %}
+            <li>
+                <video controls preload="none" playsinline poster="{{ url_for('static', filename='assets/gallery/' + video.poster) }}">
+                    <source src="{{ url_for('static', filename='assets/videos/' + video.file) }}" type="video/mp4">
+                    Tu navegador no soporta video.
+                </video>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+{% endblock %}

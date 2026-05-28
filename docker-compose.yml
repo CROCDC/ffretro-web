@@ -1,0 +1,23 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ffretro-web-app
+    environment:
+      - VIRTUAL_HOST=ffretro.nexttech.com.ar
+      - VIRTUAL_PORT=7012
+    ports:
+      - "7012:7012"
+    expose:
+      - "7012"
+    restart: unless-stopped
+    networks:
+      - proxy
+    labels:
+      - "com.github.nginx-proxy.nginx_proxy=true"
+      - com.github.nginxproxy.nginx-proxy.startup_wait=30
+
+networks:
+  proxy:
+    external: true
